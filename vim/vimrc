@@ -1,0 +1,67 @@
+set nocompatible
+
+set hlsearch
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+"filetype plugin on
+
+"Enables autmatic indentation
+"filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+"Toggle vim window movements
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+"Open nerdtree with Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+"Open CommandT with Ctrl-t
+map <C-t> :CommandT<CR>
+
+
+call plug#begin('~/.vim/autoload/plug')
+
+Plug 'scrooloose/nerdtree' 	"Allows to view file directory
+Plug 'VundleVim/Vundle.vim'  	"Allows vundle to manage vundle
+Plug 'ctrlpvim/ctrlp.vim'	"File, buffer, etc finder
+Plug 'vim-airline/vim-airline'	"Themes
+Plug 'vim-airline/vim-airline-themes'	"Themes
+Plug 'vim-latex/vim-latex'		"Latex documents
+Plug 'tpope/vim-fugitive'		"Git plugin
+Plug 'scrooloose/syntastic'		"Syntax checker
+Plug 'Yggdroot/indentLine'		"Display indentation lines
+
+call plug#end()
+
+
+" Always show statusline
+set laststatus=2
+
+
+"CtrlP config
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+"Airline config
+let g:airline_powerline_fonts = 1 
+let g:airline_theme='luna'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+"vim-latex
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'open -a Preview'
+
+
