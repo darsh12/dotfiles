@@ -21,13 +21,9 @@
 				}
 			},
 			{
-				"function": "powerline.segments.common.wthr.weather",
+				"function": "powerline.segments.common.bat.battery",
 				"args": {
-					"interval": 600,
-					"update_first": "True",
-					"location_query": "None",
-					"unit": "C"
-					
+					"gamify": "true"
 				}
 			},
 			{
