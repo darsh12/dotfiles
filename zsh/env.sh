@@ -24,3 +24,9 @@ export TERM=screen-256color
 if [ -f ~/.env_personal ]; then
 	source ~/.env_personal
 fi
+
+# Source aliases
+
+if [ -f ~/.aliases ]; then
+	source ~/.aliases
+fi
