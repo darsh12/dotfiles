@@ -54,6 +54,7 @@ cask 'transmit'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
+cask 'viscosity'
 
 # Mac App Store
 #mas '1Password', id: 1333542190
