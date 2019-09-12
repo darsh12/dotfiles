@@ -1,0 +1,5 @@
+- link:
+    ~/.tmux.conf: tmux/tmux.osx.conf
+
+# vim: sw=2 ts=2 et
+
