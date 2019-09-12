@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.vimrc: vim/vimrc
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.aliases: zsh/aliases
+    ~/.antibody_plugins: zsh/antibody-plugins
+    ~/.env.sh: zsh/env.sh
+    ~/.zshrc: zsh/zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+# vim: sw=2 ts=2 et
+
