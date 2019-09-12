@@ -23,8 +23,3 @@ if [ -f $Alias ]; then
 	source $Alias
 fi
 
-Antibody=$HOME/dotfiles/zsh/custom/sourcefiles.zsh
-if [ -f $Antibody ]; then
-	source $Antibody
-fi
-
