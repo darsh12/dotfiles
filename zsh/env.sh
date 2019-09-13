@@ -18,7 +18,7 @@ if [ -f ~/.env_personal ]; then
 fi
 
 # Source aliases
-Alias=$HOME/dotfiles/zsh/aliases
+Alias=$HOME/.aliases
 if [ -f $Alias ]; then
 	source $Alias
 fi
