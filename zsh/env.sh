@@ -14,16 +14,23 @@ function r() { grep "$1" ${@:2} -R . }
 
 # Update function
 function dotbot() {
+
+  if [[ -d ~/dotfiles ]]; then
     cd ~/dotfiles
-    git pull -q
-    if [[ lsb_release -eq "Darwin" ]]; then
-      ./install-profile mac
-    elif [[ lsb_release -eq "Linux" ]]; then
-        ./install-profile linux
-    else
-      echo "Invalid OS"
-      exit 1
-    fi
+  elif [[ -d ~/.dotfiles ]]; then
+    cd ~/.dotfiles
+  fi
+
+  git pull -q
+
+  if [[ lsb_release -eq "Darwin" ]]; then
+    ./install-profile mac
+  elif [[ lsb_release -eq "Linux" ]]; then
+      ./install-profile linux
+  else
+    echo "Invalid OS"
+    exit 1
+  fi
 }
 
 
