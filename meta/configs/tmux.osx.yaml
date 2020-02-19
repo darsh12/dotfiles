@@ -1,5 +1,5 @@
 - link:
-    ~/.tmux.conf: tmux/tmux.osx.conf
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.config/powerline: tmux/powerline
 
 # vim: sw=2 ts=2 et
