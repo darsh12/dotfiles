@@ -33,15 +33,13 @@ function dotbot() {
   fi
 }
 
-
 #Used to store personal env variables
 if [ -f ~/.env_personal ]; then
 	source ~/.env_personal
 fi
 
 # Source aliases
-Alias=$HOME/.aliases
-if [ -f $Alias ]; then
+if [ -f ~/.aliases ]; then
 	source $Alias
 fi
 
