@@ -38,6 +38,7 @@ Plug 'vim-scripts/matchit.zip'		"Extended matching
 Plug 'tpope/vim-fugitive'		"Git plugin
 Plug 'scrooloose/syntastic'		"Syntax checker
 Plug 'Yggdroot/indentLine'		"Display indentation lines
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
@@ -45,13 +46,13 @@ call plug#end()
 " Always show statusline
 set laststatus=2
 
+" FZF options
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-"CtrlP config
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
 "Airline config
 let g:airline_powerline_fonts = 1 
 let g:airline_theme='luna'
