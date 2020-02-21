@@ -40,5 +40,8 @@ if [ -f ~/.aliases ]; then
 	source ~/.aliases
 fi
 
+export FZF_DEFAULT_OPTS="--no-mouse --height=50% -1 --reverse --multi --inline-info  --preview=' [[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f2:toggle-preview,ctrl-y:execute-silent(echo {} | pbcopy)+abort'"
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
