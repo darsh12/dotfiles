@@ -6,6 +6,10 @@ set hlsearch
 
 filetype plugin indent on
 syntax on
+"Get the 2-space YAML as the default when hit carriage return after the colon
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
@@ -21,18 +25,13 @@ nmap <silent> <A-Right> :wincmd l<CR>
 "Open nerdtree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
-"Open CommandT with Ctrl-t
-map <C-t> :CommandT<CR>
-
 " Map sudo write
-
 cmap w!! w !sudo tee % >/dev/null
 
 
 call plug#begin('~/.vim/autoload/plug')
 
 Plug 'scrooloose/nerdtree' 	"Allows to view file directory
-Plug 'ctrlpvim/ctrlp.vim'	"File, buffer, etc finder
 Plug 'vim-airline/vim-airline'	"Themes
 Plug 'vim-airline/vim-airline-themes'	"Themes
 Plug 'vim-scripts/matchit.zip'		"Extended matching

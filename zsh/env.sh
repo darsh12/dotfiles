@@ -8,9 +8,6 @@ export TERM=screen-256color
 export POWERLINE_LOCATION=$(pip3 show powerline-status | grep Location | awk -F ': ' '{print $2}')
 
 
-# File search functions
-function f() { find . -iname "*$1*" ${@:2} }
-function r() { grep "$1" ${@:2} -R . }
 
 # Update function
 function dotbot() {
@@ -40,6 +37,8 @@ fi
 
 # Source aliases
 if [ -f ~/.aliases ]; then
-	source $Alias
+	source ~/.aliases
 fi
+
+
 
