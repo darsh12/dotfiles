@@ -67,6 +67,9 @@ spaceship_vi_mode_enable
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# In the event the above keys dont work
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 #vi mode
 bindkey -M vicmd 'k' history-substring-search-up
