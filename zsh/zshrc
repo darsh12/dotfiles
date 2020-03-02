@@ -7,12 +7,6 @@ export RPS1="%{$reset_color%}"
 source <(antibody init)
 antibody bundle < ~/.antibody_plugins
 
-# tmux plugin settings
-# this always starts tmux
-#ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOSTART_ONCE=true
-ZSH_TMUX_FIXTERM=true
-ZSH_TMUX_AUTOQUIT=false
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
@@ -23,19 +17,26 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# User configuration
+
+source $HOME/.env.sh
+
+# tmux plugin settings
+# this always starts tmux
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_FIXTERM=true
+ZSH_TMUX_AUTOQUIT=false
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages docker docker-compose  httpie git tmux tmuxinator osx extract z)
+plugins=(colored-man-pages docker docker-compose  httpie git tmux tmuxinator osx extract z )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-source $HOME/.env.sh
 
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
@@ -67,11 +68,9 @@ spaceship_vi_mode_enable
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
 #vi mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
