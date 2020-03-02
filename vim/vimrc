@@ -37,7 +37,6 @@ Plug 'vim-airline/vim-airline-themes'	"Themes
 Plug 'vim-scripts/matchit.zip'		"Extended matching
 Plug 'tpope/vim-fugitive'		"Git plugin
 Plug 'scrooloose/syntastic'		"Syntax checker
-@Plug 'Yggdroot/indentLine'		"Display indentation lines
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
