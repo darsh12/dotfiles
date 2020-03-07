@@ -1,0 +1,8 @@
+brew 'tmux'
+brew 'vim'
+brew 'htop'
+brew 'fzf'
+brew 'fd'
+brew 'ripgrep'
+brew 'bat'
+brew 'httpie'
