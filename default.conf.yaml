@@ -9,7 +9,7 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.aliases: zsh/aliases
     ~/.antibody_plugins: zsh/antibody-plugins
-    ~/.env.sh: zsh/env.sh
+    ~/.env.sh: zsh/zshenv
     ~/.zshrc: zsh/zshrc
 
 - shell:
