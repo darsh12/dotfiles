@@ -1,6 +1,8 @@
 tap 'homebrew/bundle'
 tap 'homebrew/core'
+tap "getantibody/tap"
 
+brew "getantibody/tap/antibody"
 brew 'tmux'
 brew 'vim'
 brew 'htop'
