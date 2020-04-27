@@ -36,7 +36,7 @@ ZSH_TMUX_AUTOQUIT=false
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages docker docker-compose  httpie git tmux tmuxinator osx extract z )
+plugins=(colored-man-pages docker docker-compose  httpie git tmux tmuxinator osx extract z fd )
 
 source $ZSH/oh-my-zsh.sh
 
