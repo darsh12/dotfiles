@@ -13,9 +13,9 @@ function dotbot() {
 
   git pull -q
 
-  if [[ uname -eq "Darwin" ]]; then
+  if [[ $(uname -s) == "Darwin" ]]; then
     ./install-profile mac
-  elif [[ uname -eq "Linux" ]]; then
+  elif [[ $(uname -s) == "Linux" ]]; then
       ./install-profile linux
   else
     echo "Invalid OS"
