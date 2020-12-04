@@ -1,0 +1,3 @@
+- link:
+    ~/.fzf.zsh: fzf/fzf.zsh
+    ~/.fzf.bash: fzf/fzf.bash
