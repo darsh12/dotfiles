@@ -7,14 +7,11 @@ set hlsearch
 filetype plugin indent on
 syntax on
 "Get the 2-space YAML as the default when hit carriage return after the colon
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
+
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
 
 "Toggle vim window movements
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -36,14 +33,16 @@ Plug 'vim-airline/vim-airline'	"Themes
 Plug 'vim-airline/vim-airline-themes'	"Themes
 Plug 'vim-scripts/matchit.zip'		"Extended matching
 Plug 'tpope/vim-fugitive'		"Git plugin
-Plug 'scrooloose/syntastic'		"Syntax checker
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'   "Syntax checker
 call plug#end()
-
 
 " Always show statusline
 set laststatus=2
+
+" Fix backspace
+set backspace=2
 
 " FZF options
 " This is the default extra key bindings
