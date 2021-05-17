@@ -1,33 +1,41 @@
+syntax on
 set nocompatible
-
 set hlsearch
+set ignorecase
+set smartcase
+set showmatch
+set incsearch
+" Always show statusline
+set laststatus=2
+" Fix backspace
+set backspace=2
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 " Press Space to turn off highlighting and clear any message already displayed.
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+"used to search for matching tags
+nnoremap <tab> % 
+vnoremap <tab> % 
+
+nnoremap ; :
+"change search color
+hi Search ctermbg=LightYellow ctermfg=Red
 
 filetype plugin indent on
-syntax on
 "Get the 2-space YAML as the default when hit carriage return after the colon
 autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-
-
-"Toggle vim window movements
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
-
 "Open nerdtree with Ctrl-n
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+" Show hiddenfiles in nerdtree
+let NERDTreeShowHidden=1
 
 " Map sudo write
 cmap w!! w !sudo tee % >/dev/null
 
-
 call plug#begin('~/.vim/autoload/plug')
-
 Plug 'scrooloose/nerdtree' 	"Allows to view file directory
 Plug 'vim-airline/vim-airline'	"Themes
 Plug 'vim-airline/vim-airline-themes'	"Themes
@@ -36,13 +44,9 @@ Plug 'tpope/vim-fugitive'		"Git plugin
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'   "Syntax checker
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
-" Always show statusline
-set laststatus=2
-
-" Fix backspace
-set backspace=2
 
 " FZF options
 " This is the default extra key bindings
@@ -50,6 +54,8 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+" Open files with Ctrl-f
+nnoremap <silent> <C-f> :Files<CR>
 
 "Airline config
 let g:airline_powerline_fonts = 1 
@@ -59,3 +65,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 
+" vim-indent-guides config
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
