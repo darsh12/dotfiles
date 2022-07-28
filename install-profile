@@ -14,8 +14,12 @@ DOTBOT_BIN="bin/dotbot"
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+
 cd "${BASE_DIR}"
-git submodule update --init --recursive --remote
+pwd
+
+git -C "${META_DIR}/${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${META_DIR}/${DOTBOT_DIR}"
 
 while IFS= read -r config; do
     CONFIGS+=" ${config}"
@@ -23,10 +27,23 @@ done < "${META_DIR}/${PROFILES_DIR}/$1"
 
 shift
 
-echo ${CONFIGS}
-
 for config in ${CONFIGS} ${@}; do
     echo -e "\nConfigure $config"
-    configFile="$(mktemp)" ; echo -e "$(<"${BASE_DIR}/${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}")\n$(<"${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config}${CONFIG_SUFFIX}")" > "$configFile"
-    "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "$configFile" ; rm -f "$configFile"
+    # create temporary file
+    configFile="$(mktemp)"
+    suffix="-sudo"
+    echo -e "$(<"${BASE_DIR}/${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}")\n$(<"${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config%"$suffix"}${CONFIG_SUFFIX}")" > "$configFile"
+
+    cmd=("${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "$configFile")
+
+    if [[ $config == *"sudo"* ]]; then
+        cmd=(sudo "${cmd[@]}")
+    fi
+
+    "${cmd[@]}"
+    rm -f "$configFile"
 done
+
+cd "${BASE_DIR}"
+
+#https://github.com/anishathalye/dotbot/wiki/Tips-and-Tricks#more-advanced-setup
