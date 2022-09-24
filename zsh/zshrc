@@ -48,6 +48,7 @@ source $ZSH/oh-my-zsh.sh
 
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
+  time          # Time stamps section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   package       # Package version
@@ -58,7 +59,7 @@ SPACESHIP_PROMPT_ORDER=(
   docker        # Docker section
   venv          # virtualenv section
   conda         # conda virtualenv section
-  pyenv         # Pyenv section
+  python        # Python section
   exec_time     # Execution time
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
@@ -71,6 +72,7 @@ SPACESHIP_RPROMPT_ORDER=(
 )
 
 SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_TIME_SHOW=true
 spaceship_vi_mode_enable
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
