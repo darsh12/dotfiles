@@ -16,7 +16,8 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
 cd "${BASE_DIR}"
-git submodule update --init --recursive --remote
+git -C "${BASE_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${BASE_DIR}"
 
 for config in ${@}; do
     # create temporary file
@@ -35,5 +36,3 @@ for config in ${@}; do
 done
 
 cd "${BASE_DIR}"
-
-#https://github.com/anishathalye/dotbot/wiki/Tips-and-Tricks#more-advanced-setup
