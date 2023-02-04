@@ -45,6 +45,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'   "Syntax checker
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'embear/vim-localvimrc'
 call plug#end()
 
 
