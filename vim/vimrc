@@ -46,6 +46,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'   "Syntax checker
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'embear/vim-localvimrc'
+source ~/.vim.plugins "File to add additional plugins
 call plug#end()
 
 

@@ -1,5 +1,6 @@
 - link:
     ~/.vimrc: vim/vimrc
 
+- shell:
+    - [touch ~/.vim.plugins]
 # vim: sw=2 ts=2 et
-
