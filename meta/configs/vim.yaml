@@ -3,4 +3,5 @@
 
 - shell:
     - [touch ~/.vim.plugins]
+    - [touch ~/.vim.custom]
 # vim: sw=2 ts=2 et
