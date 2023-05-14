@@ -2,5 +2,6 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/powerline: tmux/powerline
 
+- shell:
+    - [touch ~/.tmux.custom.conf]
 # vim: sw=2 ts=2 et
-

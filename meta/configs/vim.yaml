@@ -4,4 +4,7 @@
 - shell:
     - [touch ~/.vim.plugins]
     - [touch ~/.vim.custom]
+
+- create:
+    - ~/.vim/autoload
 # vim: sw=2 ts=2 et

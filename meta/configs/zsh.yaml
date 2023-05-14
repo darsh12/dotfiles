@@ -5,4 +5,6 @@
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh-custom: zsh/custom
 
+- shell:
+    - [touch ~/.customenv]
 # vim: sw=2 ts=2 et
