@@ -11,13 +11,13 @@ set laststatus=2
 set backspace=2
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-"used to search for matching tags
-nnoremap <tab> % 
-vnoremap <tab> % 
+" map leader to comma
+let mapleader = "," 
 
-nnoremap ; :
+" Set cursor line
+set cursorline
+
+
 "change search color
 hi Search ctermbg=LightYellow ctermfg=Red
 
@@ -26,9 +26,6 @@ filetype plugin indent on
 autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 
-"Open nerdtree with Ctrl-n
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
 " Show hiddenfiles in nerdtree
 let NERDTreeShowHidden=1
 
@@ -50,18 +47,20 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'qxxxb/vim-searchhi'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-unimpaired'
 source ~/.vim.plugins "File to add additional plugins
 call plug#end()
 
+" NerdTree config
+" Close nerdtree on file open 
+let NERDTreeQuitOnOpen = 1
 
 " FZF options
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-" Open files with Ctrl-f
-nnoremap <silent> <C-f> :Files<CR>
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-s': 'vsplit' }
 
 "Airline config
 let g:airline_powerline_fonts = 1 
@@ -77,13 +76,37 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
+
+
+let g:startify_session_dir='~/.vim/sessions'
+let g:startify_bookmarks=systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+
+""" Start Remap 
+
+nnoremap ; :
+
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+"Open nerdtree with Ctrl-n
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+
 " Startify config
 nnoremap <leader>so :SLoad
 nnoremap <leader>ss :SSave
 nnoremap <leader>sd :SDelete<CR>
 nnoremap <leader>sc :SClose<CR>
 
-let g:startify_session_dir='~/.vim/sessions'
-let g:startify_bookmarks=systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+" View diff on file changes
+nnoremap <silent> <leader>d :w !diff % -<CR>
+
+" Source vimrc file
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Open files with Ctrl-f
+nnoremap <silent> <C-f> :Files<CR>
+
+""" END Remap
 
 source ~/.vim.custom
