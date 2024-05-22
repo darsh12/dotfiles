@@ -8,4 +8,6 @@
 - create:
     ~/.vim/autoload:
       mode: 0755
+    ~/.vim/undo:
+      mode: 0755
 # vim: sw=2 ts=2 et

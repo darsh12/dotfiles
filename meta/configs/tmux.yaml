@@ -1,5 +1,8 @@
 - link:
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/powerline: 
+      if: '[ `uname` = Darwin ]'
+      path: tmux/powerline
 
 - shell:
     - [touch ~/.tmux.custom.conf]
