@@ -17,7 +17,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <tab> % 
 vnoremap <tab> % 
 
-nnoremap ; :
 "change search color
 hi Search ctermbg=LightYellow ctermfg=Red
 
@@ -28,7 +27,6 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab in
 
 "Open nerdtree with Ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
 " Show hiddenfiles in nerdtree
 let NERDTreeShowHidden=1
 
@@ -50,6 +48,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'qxxxb/vim-searchhi'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
+Plug 'simnalamburt/vim-mundo'
 source ~/.vim.plugins "File to add additional plugins
 call plug#end()
 
@@ -85,5 +84,15 @@ nnoremap <leader>sc :SClose<CR>
 
 let g:startify_session_dir='~/.vim/sessions'
 let g:startify_bookmarks=systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+
+" save undo trees in files
+set undofile
+set undodir=~/.vim/undo
+
+" number of undo saved
+set undolevels=10000
+
+" toggle mundo
+nnoremap <leader>u :MundoToggle<CR>
 
 source ~/.vim.custom
