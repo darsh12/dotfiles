@@ -8,3 +8,10 @@
 
 # Because who cares about case!?
 --smart-case
+
+# Search hidden files
+--hidden
+
+# Using glob patterns to include/exclude files or folders
+--glob
+!.git/*
