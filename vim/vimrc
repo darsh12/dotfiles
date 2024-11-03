@@ -18,8 +18,8 @@ let mapleader = ","
 set cursorline
 
 
-"change search color
-hi Search ctermbg=LightYellow ctermfg=Red
+"change visual color
+hi Visual term=reverse ctermfg=9 ctermbg=229 guibg=Yellow
 
 filetype plugin indent on
 "Get the 2-space YAML as the default when hit carriage return after the colon
