@@ -8,7 +8,7 @@
     ~/.vimrc: vim/vimrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.aliases: zsh/aliases
-    ~/.antibody_plugins: zsh/antibody-plugins
+    ~/.antibody_plugins: zsh/antidote-plugins
     ~/.env.sh: zsh/zshenv
     ~/.zshrc: zsh/zshrc
 

@@ -7,8 +7,8 @@ export TERM=screen-256color
 
 export RPS1="%{$reset_color%}"
 
-source <(antibody init)
-antibody bundle < ~/.antibody_plugins
+source $HOME/.antidote/antidote.zsh
+antidote load ~/.antidote_plugins
 
 
 # Would you like to use another custom folder than $ZSH/custom?

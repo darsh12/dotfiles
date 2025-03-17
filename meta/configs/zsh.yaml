@@ -1,6 +1,6 @@
 - link:
     ~/.aliases: zsh/aliases
-    ~/.antibody_plugins: zsh/antibody-plugins
+    ~/.antidote_plugins: zsh/antidote-plugins
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh-custom: zsh/custom
